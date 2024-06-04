@@ -1,6 +1,7 @@
 # set_finalizer.lua
 
 A simple solution that allows tables to have finalizers in Lua 5.1 / LuaJIT, for those who find the `__gc` metamethod doesn't work for tables in these versions.
+
 This snippet of code provides a function called `set_finalizer`, which modifies the metatable of the table you wish to have a finalizer. When the table is garbage-collected, the finalizer is automatically called.
 
 ## Usage
@@ -11,6 +12,8 @@ t = set_finalizer(t, finalizer)
 ```
 
 That's it. `finalizer` is a function that takes `t` as its parameter just like the `__gc` method in Lua 5.2 ~ 5.4.
+
+You can also remove the existing finalizer of `t` by calling `set_finalizer(t, nil)`.
 
 ## Caveats
 
